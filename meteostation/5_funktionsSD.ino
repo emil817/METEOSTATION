@@ -13,6 +13,7 @@ void SD_Write()
     LMin = tm.Minute;
     File MFile = SD.open("J2021.csv", FILE_WRITE);
     String record = GetTime1() + String(bme.readTemperature()) + ";" + String(int((bme.readPressure() / 100.0F) * 0.75)) + ";" + String(sensors.getTempCByIndex(0))  + ";" + String(bme.readHumidity()) + ";" + String(int(analogRead(temt6000_pin) * 0.9765625)) + ";";
+    record.replace('.',',');
     MFile.println(record);
     MFile.close();
   }
