@@ -1,29 +1,25 @@
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x23, 20, 4);
+#define lcd_I2C_addres 0x23
 
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BME280.h>
-Adafruit_BME280 bme;
+#define bme280_I2C_addres 0x76
 
-#include <SPI.h>
-#include <SD.h>
+#define DS18B20_Pin 4
+#define DS18B20_Resolution 12
 
-#include <OneWire.h>
-#include <DallasTemperature.h>
-#define ONE_WIRE_BUS 4
-OneWire oneWire(ONE_WIRE_BUS);
-DallasTemperature sensors(&oneWire);
-
-#include <TimeLib.h>
-#include <DS1307RTC.h>
-tmElements_t tm;
-
-#include <SoftwareSerial.h>
-SoftwareSerial mySerial(7, 8);
-
-
-//#define SEALEVELPRESSURE_HPA (1013.25)
-
+#define SD_CS_pin 10
 
 #define temt6000_pin A2
+
+#define bluetoothTx 8
+#define bluetoothRx 7
+
+#define Lcd_ON_time 30  // Время работы дисплея в секундах
+#define Lcd_Update_time 3 //Время обновления дисплея в секундах
+
+#define BT_ON_time 60 // Время работы блютуза в секундах
+#define BT_Update_time 3 //Время обновления блютуза в секундах
+
+/***********************************************************/
+#define Lcd_ON_timeMill (Lcd_ON_time * 1000)
+#define Lcd_Update_timeMill (Lcd_Update_time * 1000)
+#define BT_ON_timeMill (BT_ON_time * 1000)
+#define BT_Update_timeMill (BT_Update_time * 1000)

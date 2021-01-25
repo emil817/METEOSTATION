@@ -22,13 +22,13 @@ void LCDInformation()
 
   if (flag_on_lcd == true)
   {
-    if (millis() - last_min > 3000)
+    if (millis() - last_min > Lcd_Update_timeMill)
     {
       LCD_Data();
       last_min = millis();
     }
 
-    if (millis() - start_lcd > 30000)
+    if (millis() - start_lcd > Lcd_ON_timeMill)
     {
       flag_on_lcd = false;
       lcd.clear();
@@ -79,7 +79,7 @@ void BT()
   }
   if (BlueT_on == true)
   {
-    if (millis() - LtimeBlt > 3000)
+    if (millis() - LtimeBlt > BT_Update_timeMill)
     {
       LtimeBlt = millis();
       String Send_BT = "";
@@ -87,7 +87,7 @@ void BT()
       Send_BT = String(bme.readTemperature()) + ";" + String(int((bme.readPressure() / 100.0F) * 0.75)) + ";" + String(sensors.getTempCByIndex(0))  + ";" + String(bme.readHumidity()) + ";" + String(int(analogRead(temt6000_pin) * 0.9765625)) + ";";
       mySerial.print(Send_BT);
     }
-    if (millis() - start_B > 60000)
+    if (millis() - start_B > BT_ON_timeMill)
     {
       BlueT_on = false;
     }

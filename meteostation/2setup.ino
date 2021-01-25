@@ -1,6 +1,6 @@
 void setup() {
   sensors.begin();
-  sensors.setResolution(12);
+  sensors.setResolution(DS18B20_Resolution);
 
   byte capla[8] = {0b00000,0b00100,0b01110,0b01110,0b11111,0b11111,0b01110,0b00000};
   byte Press[8] = {0b00100,0b00100,0b10101,0b01110,0b00100,0b00000,0b11111,0b11111};
@@ -18,9 +18,9 @@ void setup() {
   lcd.clear();
 
   unsigned status;
-  status = bme.begin(0x76);
+  status = bme.begin(bme280_I2C_addres);
   
   mySerial.begin(9600);
 
-  SD.begin(10);
+  SD.begin(SD_CS_pin);
 }
