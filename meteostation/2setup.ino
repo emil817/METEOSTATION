@@ -8,17 +8,18 @@ void setup() {
   byte SUN[8] = {0b00000,0b00100,0b10001,0b01110,0b01110,0b01110,0b10001,0b00100};
   byte Tem[8] = {0b00100,0b01010,0b01010,0b01010,0b01010,0b10001,0b01010,0b00100};
   
-  lcd.begin();
+  lcd.begin();  
+  lcd.noBacklight();
+  lcd.clear();
   lcd.createChar(0, capla);
   lcd.createChar(7, Press);
   lcd.createChar(1, gradys);
   lcd.createChar(2, SUN);
   lcd.createChar(3, Tem);
-  lcd.noBacklight();
-  lcd.clear();
+  delay(1500);
 
-  unsigned status;
-  status = bme.begin(bme280_I2C_addres);
+  unsigned statusb;
+  statusb = bme.begin(bme280_I2C_addres);
   
   mySerial.begin(9600);
 
