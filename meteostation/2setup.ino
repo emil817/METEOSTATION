@@ -16,7 +16,7 @@ void setup() {
   lcd.createChar(1, gradys);
   lcd.createChar(2, SUN);
   lcd.createChar(3, Tem);
-  delay(1500);
+  delay(3000);
 
   unsigned statusb;
   statusb = bme.begin(bme280_I2C_addres);
