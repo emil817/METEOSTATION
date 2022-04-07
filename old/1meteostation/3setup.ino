@@ -24,4 +24,8 @@ void setup() {
   mySerial.begin(9600);
 
   SD.begin(SD_CS_pin);
+
+  mhz19.begin(MHZ_TX, MHZ_RX);
+  mhz19.setAutoCalibration(false);
+  mhz19.getStatus();
 }

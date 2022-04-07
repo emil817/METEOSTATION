@@ -84,7 +84,8 @@ void BT()
       LtimeBlt = millis();
       String Send_BT = "";
       sensors.requestTemperatures();
-      Send_BT = String(bme.readTemperature()) + ";" + String(int((bme.readPressure() / 100.0F) * 0.75)) + ";" + String(sensors.getTempCByIndex(0))  + ";" + String(bme.readHumidity()) + ";" + String(int(analogRead(temt6000_pin) * 0.9765625)) + ";";
+      CO2 = mhz19.getPPM();
+      Send_BT = String(bme.readTemperature()) + ";" + String(int((bme.readPressure() / 100.0F) * 0.75)) + ";" + String(sensors.getTempCByIndex(0))  + ";" + String(bme.readHumidity()) + ";" + String(int(analogRead(temt6000_pin) * 0.9765625)) + ";" + String(int(CO2)) + ";";
       mySerial.print(Send_BT);
     }
     if (millis() - start_B > BT_ON_timeMill)

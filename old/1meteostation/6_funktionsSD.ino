@@ -8,12 +8,12 @@ void SD_Write()
     if(!SD.exists(nameF))
     {
        File MFile = SD.open(nameF, FILE_WRITE);
-       MFile.println("Month;Day;Time;Temperature inside;Pressure;Temperature outside;Humidity;Light;");
+       MFile.println("Month;Day;Time;Temperature inside;Pressure;Temperature outside;Humidity;Light;CO2;");
        MFile.close();
     }
     LMin = tm.Minute;
     File MFile = SD.open(nameF, FILE_WRITE);
-    String record = GetTime1() + String(bme.readTemperature()) + ";" + String(int((bme.readPressure() / 100.0F) * 0.75)) + ";" + String(sensors.getTempCByIndex(0))  + ";" + String(bme.readHumidity()) + ";" + String(int(analogRead(temt6000_pin) * 0.9765625)) + ";";
+    String record = GetTime1() + String(bme.readTemperature()) + ";" + String(int((bme.readPressure() / 100.0F) * 0.75)) + ";" + String(sensors.getTempCByIndex(0))  + ";" + String(bme.readHumidity()) + ";" + String(int(analogRead(temt6000_pin) * 0.9765625)) + ";" + mhz19.getPPM() + ";";
     record.replace('.',',');
     MFile.println(record);
     MFile.close();
