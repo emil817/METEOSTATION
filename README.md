@@ -1,6 +1,6 @@
 # METEOSTATION
-My meteostation
+My meteostation on Arduino
 
-[Схема](https://github.com/emil817/METEOSTATION/blob/main/Scheme.jpg)
+[Sheme](https://github.com/emil817/METEOSTATION/blob/main/Scheme.jpg)
 
-[Принципиальная схема](https://github.com/emil817/METEOSTATION/blob/main/Scheme2.png)
+[Principle sheme](https://github.com/emil817/METEOSTATION/blob/main/Scheme2.png)
